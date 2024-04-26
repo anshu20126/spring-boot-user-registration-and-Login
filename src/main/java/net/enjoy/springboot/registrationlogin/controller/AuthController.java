@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import net.enjoy.springboot.registrationlogin.dto.UserDto;
 import net.enjoy.springboot.registrationlogin.entity.User;
 import net.enjoy.springboot.registrationlogin.service.UserService;
+import net.enjoy.springboot.registrationlogin.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,11 @@ import java.util.List;
 @Controller
 public class AuthController {
     private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     // handler method to handle home page request
     @GetMapping("/index")
